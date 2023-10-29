@@ -103,12 +103,103 @@ The gold standard way -> As a root user, run 'visudo'
 
 `gpasswd --delete user group`
 
+5. Find the current Operating system
+
+`uname -a` or `hostnamectl`
+
+---
+
+## 4 - File Hierarchy Structure
+
+![Linux file hierarchy](https://www.tecmint.com/wp-content/uploads/2013/09/Linux-Directory-Structure.jpeg)
+
+https://www.youtube.com/watch?v=HbgzrKJvDRw&ab_channel=DorianDotSlash
+
+1. /etc -> It contains the system-wide configuration files.
+
+2. /root -> Home directory for the root user.
+
+3. /home -> Contains the user account home directories.
+
+4. /tmp -> Can be used for temporary files and scp(ing) files here. Will be deleted at start. Can be accessed by all users.
+
+5. /proc -> Can be used to find system information. (e.g. cat /proc/[uptime|cpuinfo])
+
+---
+
+## 5 - Crontab
+
+When you want to schedule a task for a certain period of time -> you can use crontab.
+
+	a. Go to crontab.guru to find the schedule that you want.
+	b. Add your job to crontab list for the current user by `crontab -e'
+	c. List the current crontab jobs by `crontab -l`
+
+---
+
+## 6 - Logical Volume Manager
+![LVM image](https://www.brainupdaters.net/wp-content/uploads/2017/01/LogicalVolumenManager.jpg)
+
+	1. Add a disk
+		`lsblk`
+	2. Create a partition
+		`fdisk` -> n -> +10G -> w
+	3. Create a Physical Volume and list them
+		`pvcreate /dev/sdb1` and `pvs`
+	4. Create a Volume Group and list them
+		`vgcreate drive_two /dev/sdb1` and `vgs`
+	5. Create a Logical Group and list them
+		`lvcreate -L 9G -n mylv drive_two` and `lgs`
+	6. Make a new filesystem (XFS)
+		`mkfs.xfs /dev/sdb/sdb1/drive_two-mylv`
+	7. Mounted the filesystem
+		`echo "/dev/drive_two/mylv     /home/avyas             xfs     defaults                     0 0" >> /etc/fstab`
+	8. Check disk usage
+		`df -h`
+![Mount options](https://www.cyberpratibha.com/wp-content/uploads/2020/06/use-of-fstab-option-for-mounting-disk-in-linux-File-System-Table-fstab-Entry-Explained.png)
 
 
+	9. Extend logical Volume by using storage from vg
+		`lvextend -L +9.9G /dev/drive_two/mylv -r`
+		Make sure you remember the '-r' option!
+		or you can use 100% of the new physical Volume
+		`lvextend /dev/drive_two/mylv /dev/sdb2 -r`
 
+
+BONUS -> Create a large file `dd if=/dev/urandom of=5gbfile bs=1M count=5120`
+---
+
+## 6 - System administrative tasks
+
+1. Package management
+	a. How to install packages? 
+	b. How to start them up at runtime?
+
+`subscription-manager register --username <username> --password <password> --auto-attach`
+
+`yum update`
+
+`yum [search|install] <name_of_the_package>`
+
+`systemctl [start|status|stop|enable|disable] <service_name>`
+
+`systemctl status firewalld`
+
+`firewall-cmd --list-all`
+
+`firewall-cmd --add-service http --permanent && firewall-cmd --reload`
+
+3. Changing the static IP of a system & also brief look at the system firewall
+
+`vi /etc/sysconfig/network-scripts/ifcfg-<ethernet_device_name>`
+-> Make sure the BOOTPROTO=static and IPADDR
 
 ---
 
 # NOTES:
+
+### Go to Red Hat developer website and create a developer account for yourself.
+
+### Learn how to use vieditor from `vimtutor`
 
 ### All passwords in the class: Fortinet123#
