@@ -1,6 +1,6 @@
-#Shallot DevOps Course
+# Shallot DevOps Course
 
-##Oct' 28, 2023 - Monday - Start
+## Oct' 28, 2023 - Monday - Start
 
 ### Plan
 
