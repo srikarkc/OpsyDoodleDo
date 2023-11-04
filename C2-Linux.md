@@ -147,4 +147,4 @@ NOTE: When we mention the usage, `$0` means the name of the first and then `$1` 
 
 1. NFS -> Network File Systems is a distributed file system protocol that allows remote clients to access files and directories over a network as if they were stored locally on the client's own machine.
 
-![NFS network diagram](<a href="https://drive.google.com/uc?export=view&id=15MzfAbMhHjyzJJQejCEOCcXnnhC3H_fX"><img src="https://drive.google.com/uc?export=view&id=15MzfAbMhHjyzJJQejCEOCcXnnhC3H_fX" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />)
+<a href="https://drive.google.com/uc?export=view&id=15MzfAbMhHjyzJJQejCEOCcXnnhC3H_fX"><img src="https://drive.google.com/uc?export=view&id=15MzfAbMhHjyzJJQejCEOCcXnnhC3H_fX" style="width: 350px; max-width: 100%; height: auto" title="Click to enlarge picture" />
