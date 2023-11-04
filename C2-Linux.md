@@ -17,7 +17,7 @@ ls <file> | grep -A \[number] -B \[number] -> Shows you lines above and below a 
 
 >, >> , <, & | -> Re-direct operators
 
-![Operators](https://files.codingninjas.in/article_images/linux-control-operators-1-1668541710.webp)
+![Operators](https://media.cheatography.com/storage/thumb/davechild_linux-command-line.750.jpg?last=1582977076)
 
 Basic variables -> `COLOR=blue` (Remember no space around =) & value `echo $COLOR`
 
