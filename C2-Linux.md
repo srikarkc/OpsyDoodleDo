@@ -148,3 +148,60 @@ NOTE: When we mention the usage, `$0` means the name of the first and then `$1` 
 1. NFS -> Network File Systems is a distributed file system protocol that allows remote clients to access files and directories over a network as if they were stored locally on the client's own machine.
 
 <a href="https://drive.google.com/uc?export=view&id=15MzfAbMhHjyzJJQejCEOCcXnnhC3H_fX"><img src="https://drive.google.com/uc?export=view&id=15MzfAbMhHjyzJJQejCEOCcXnnhC3H_fX" style="width: 100px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+### Steps:
+
+#### Server-side (Ubuntu)
+0 - Create a directory to share & change the user and group to nobody:nogroup
+
+`chown nobody:nogroup nfsshare`
+
+1 - Search for the package
+
+`sudo apt search nfs | grep nfs | grep server`
+
+2 - Install the package
+
+`sudo apt install nfs-kernel-server`
+
+3 - Setup the configuration for the NFS server
+
+`sudo vi /etc/exports`
+
+Follow the example above to setup.
+
+4 - Start the process & check status
+
+`sudo systemctl start nfs-kernel-server`
+`sudo systemctl status nfs-kernel-server`
+
+5 - Firewall allow
+
+`sudo ufw allow from your_client_ip_block/24 to any port nfs` 
+
+#### Client-side (RHEL)
+
+1 - Install package
+
+`yum install nfs-utils`
+
+2 - Create directory to sync with the server
+
+`mkdir /mnt/nfsshare`
+
+3 - Add a mount point in '/etc/fstab'
+
+`echo "10.0.0.42:/home/kc96/enfsshare /mnt/enfsshare   nfs     rw,defaults     0 0" > /etc/fstab`
+
+4 - Start the nfs-utils package
+
+`sudo systemctl start nfs-utils`
+
+5 - Daemon reload & mount all
+
+`sudo systemctl daemon-reload && mount -a`
+
+---
+
+## 4 - Apache Web server with HTML/CSS/JS
+
