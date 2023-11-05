@@ -205,3 +205,72 @@ Follow the example above to setup.
 
 ## 4 - Apache Web server with HTML/CSS/JS
 
+1 - Install Apache Web server
+
+`yum install -y httpd`
+
+2 - Start Apache Web server
+
+`sudo systemctl start httpd`
+
+Enable the service to start everytime the server starts up
+
+`sudo systemctl enable httpd`
+
+3 - Put our script in '/var/www/html'
+
+`vi /var/www/html/index.html`
+`vi /var/www/html/style.css`
+`vi /var/www/html/script.js`
+
+4 - Enable Firewall access for port 80
+
+`sudo firewall-cmd --permanent --add-service=http`
+`sudo firewall-cmd --reload`
+
+> Play around with '/etc/httpd/conf/httpd.conf' configuration file. Try changing the port and setting a name for the webpage.
+
+
+---
+
+## 5 - Java Webapp deployed with Tomcat
+
+1. Java is a statically-compiled language which means, the source code needs to be compiled before running the application.
+
+2. JRE vs JDK -> JRE is used for running the Java application. JDK is used for developing Java Applications and comes with javac (Java compiler).
+
+3. Maven and Gradle are Java build tools commonly used. 
+
+4. Installing Java 11
+
+`sudo yum install -y java-11-openjdk-devel` 
+
+5. Installing Maven
+
+`sudo yum install -y maven`
+
+6. Maven command to build a simple Java Webapp
+
+`mvn archetype:generate -DgroupId=com.myapp -DartifactId=MyWebApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false`
+
+7. Build the application
+
+`mvn clean package`
+
+8. Install and start/enable Tomcat
+
+`sudo yum install -y tomcat`
+
+`sudo systemctl start tomcat`
+
+9. Allow the application port 8080 through Firewall
+
+`sudo firewall-cmd --permanent --add-port 8080/tcp && sudo firewall-cmd --reload`
+
+10. Located the webapps directory using 'find' tool
+
+`find / -name webapps -type d`
+
+11. Copied the MyWebApp.war to the above found webapps directory.
+
+> Note that the webpage is case-sensitive.
