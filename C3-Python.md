@@ -147,6 +147,9 @@ You use while loop when you don't know the number of elements.
 
 Function: A function is a block of organized reusable code. 
 Module: A module a collection of functions. 
+Import a module -> `import <module_name>` -> To use in source code -> `<module_name>.<function_name>`
+Import all functions from a file -> `from <module_name> import *` -> You can refer to the functions by their name.
+
 
 ```
 def calculate_stress(force, area = 500):
@@ -198,7 +201,7 @@ print(f"{square(5,2)}")
 
 ---
 
-### Object Oriented programming
+## Object Oriented programming
 
 Attributes and methods
 
@@ -226,7 +229,7 @@ class Person:
         return f"Hello! My name is {self.name}"
 ```
 
-#### Inheritence
+### Inheritence
 
 We created an 'Indian' subclass which inherited from 'Person' subclass.
 
@@ -257,3 +260,25 @@ These abstract methods are defined in sub-classes that inherits the superclass i
 2. Sub-classes *must* define the abstract method body.
 
 ``` See human_abstract.py ```
+
+### Encapsulation
+
+Encapsulation is the process of keeping attributes and its methods together.
+
+The process of protecting attributes and using methods to get and set (getters and setters) values.
+
+### Polymorphism
+
+Ability of one method to have different implementations in different classes.
+
+### Static methods and Variables
+
+They belong to the class that they are defined in. 
+Static methods cannot deal with instance (non-static) methods or attributes.
+
+---
+
+## Projects
+
+### Project 1 - File Organization Automation
+
