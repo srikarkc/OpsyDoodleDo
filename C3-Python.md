@@ -282,3 +282,25 @@ Static methods cannot deal with instance (non-static) methods or attributes.
 
 ### Project 1 - File Organization Automation
 
+We imported 'os' module and used it for working with files and directories using various methods.
+
+We used 'shutil' module & 'move' method to move the files.
+
+We saw ` if __name__ == "__main__": ` - Entrypoint for the Python file.
+
+Implemented 'for' loop and 'if' condition. We split an element in a list at the . and used list indexing to get the extension. `item.split(".")[-1]`
+
+
+
+
+---
+# Homework:
+
+Project 1 Improvements:
+
+1. Automate execution using cron job
+2. Input Validation and Error Handling
+3. CLI arguments using 'argparse'
+4. GUI -> tkinter
+
+Python virtual environment (https://realpython.com/python-virtual-environments-a-primer/)
