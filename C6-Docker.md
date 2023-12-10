@@ -224,7 +224,7 @@ Similar to running an application on the host system without container.
 
 2. Memory limits
 
--m <amount of memory>
+-m \<amount of memory>
 
 
 [Resource Constraints](https://docs.docker.com/config/containers/resource_constraints/)
