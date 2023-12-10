@@ -81,7 +81,7 @@ These logs are stored in the host system's storage
 
 We saw that PID 1 of 2 different containers are running different processes. This is possible through Linux namespaces technology.
 
-!(Docker Lifecycle)[https://miro.medium.com/v2/resize:fit:1083/1*G_zpPbsTusaoaBONuD43ow.png]
+![Docker Lifecycle](https://miro.medium.com/v2/resize:fit:1083/1*G_zpPbsTusaoaBONuD43ow.png)
 
 `docker exec -it <container_id> /bin/sh`
 
@@ -91,7 +91,7 @@ Filesystem isolation:
 
 Linux has a directory tree.
 
-!(Directory tree)[https://www.devopsschool.com/blog/wp-content/uploads/2023/06/Linux-file-systems-827x1024.jpeg]
+![Directory tree](https://www.devopsschool.com/blog/wp-content/uploads/2023/06/Linux-file-systems-827x1024.jpeg)
 
 Each container has it's own isolated FS.
 
