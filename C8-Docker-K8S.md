@@ -69,3 +69,46 @@ services:
 volumes:
   pgdata:
 ```
+
+---
+
+# Kubernetes
+
+### Introduction
+
+Kubernetes primarily solves the problem of automating the deployment, scaling, and management of containerized applications across clusters of hosts.
+
+### Control Plane components
+
+The Kubernetes control plane consists of several key components, each with a specific role in managing the cluster:
+
+1. **kube-apiserver**: This is the central management entity and API server for Kubernetes. It provides the Kubernetes API through which users, the different parts of the cluster, and external components communicate.
+
+2. **etcd**: A highly available key-value store used as Kubernetes' backing store for all cluster data. It stores the entire state of the cluster at any given time, making it crucial for cluster state management and coordination.
+
+3. **kube-scheduler**: Responsible for assigning newly created pods to nodes. It considers various factors such as resource requirements, hardware/software constraints, affinity and anti-affinity specifications, data locality, and workload-specific requirements.
+
+4. **kube-controller-manager**: Runs controller processes, which are background threads that handle routine tasks in the cluster. These controllers include the Node Controller (for noticing and responding when nodes go down), Replication Controller (for maintaining the correct number of pods for every replication controller object), and others.
+
+### Worker Plane Compoenents
+
+1. **kubelet**: This is an agent that runs on each node in the cluster. It ensures that containers are running in a Pod and are healthy, based on the specifications provided in the PodSpecs.
+
+2. **kube-proxy**: This network proxy reflects Kubernetes networking services on each node, maintaining network rules that allow network communication to your Pods from network sessions inside or outside your cluster.
+
+3. **Container Runtime**: The software responsible for running containers. Kubernetes is agnostic to the container runtime, and it requires a container runtime for a node to work with containers. Examples include Docker, containerd, and CRI-O. 
+
+---
+
+### Hands-on
+
+1. We installed Minikube on the Ubuntu VM which started a 'baby' K8S cluster for us for learning purposes which is running our local machine.
+
+`minikube start`
+
+2. We need to interact with this cluster so we installed 'kubectl' and kubectl configuration is pointing to the minikube cluster.
+
+`kubectl cluster-info`
+`kubectl get nodes`
+
+3. 
