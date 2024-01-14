@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-k8s-py-app
+spec:
+  containers:
+  - image: srikarkc/my-hello-python-app:v2

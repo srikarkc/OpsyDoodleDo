@@ -78,6 +78,8 @@ volumes:
 
 Kubernetes primarily solves the problem of automating the deployment, scaling, and management of containerized applications across clusters of hosts.
 
+![Kubernetes Architecture](https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg)
+
 ### Control Plane components
 
 The Kubernetes control plane consists of several key components, each with a specific role in managing the cluster:
@@ -111,4 +113,40 @@ The Kubernetes control plane consists of several key components, each with a spe
 `kubectl cluster-info`
 `kubectl get nodes`
 
-3. 
+3. Run an app on K8S
+
+`kubectl run my-k8s-py-app --image=srikarkc/my-hello-python-app:v2 --port=8080`
+
+The above command created a Pod.
+
+## Pods
+
+Pods in Kubernetes are the smallest, most basic deployable objects in a Kubernetes cluster.
+
+1. **Container Grouping**: Pods encapsulate one or more application containers, storage resources, a unique network IP, and options that govern how the container(s) should run. They provide a way to bundle application containers and their dependencies together.
+
+2. **Shared Context and Resources**: Containers in the same Pod share the same IP address, port space, and volume, which allows them to communicate efficiently and share data. This setup is akin to running the containers on the same virtual machine or physical host.
+
+3. **Atomic Unit of Deployment**: In Kubernetes, you deploy and manage Pods rather than individual containers. This is important for scaling, updating, and managing applications.
+
+4. **Lifespan and Ephemeral Nature**: Pods are designed to be ephemeral. They are created and destroyed to match the state of your cluster. When a Pod dies, it is not resurrected. Instead, higher-level constructs like Deployments can create new Pods.
+
+## Deployment
+
+In K8S, we don't normally deploy Pods, we deploy Deployments which manage Pods through Replica Sets.
+
+`kubectl create deployment <name> --image=image`
+
+---
+
+### Plan for next class on Google Cloud Platform:
+
+1. First deploy Jenkins instance. 
+2. Connect Code Repository w/ Jenkins.
+3. Every new commit to the master branch should trigger a new build.
+4. Use the python-portfolio-app and then run a test (using the Django testing framework).
+5. Package the python app.
+6. Create a Docker image using the Dockerfile and above artifact.
+7. Push image to Google Artifact Registry.
+8. On a K8S cluster running in GKE, pull the above image and deploy to production.
+9. Create/update service to expose the above application externally.
