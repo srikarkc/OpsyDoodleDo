@@ -138,15 +138,3 @@ In K8S, we don't normally deploy Pods, we deploy Deployments which manage Pods t
 `kubectl create deployment <name> --image=image`
 
 ---
-
-### Plan for next class on Google Cloud Platform:
-
-1. First deploy Jenkins instance. 
-2. Connect Code Repository w/ Jenkins.
-3. Every new commit to the master branch should trigger a new build.
-4. Use the python-portfolio-app and then run a test (using the Django testing framework).
-5. Package the python app.
-6. Create a Docker image using the Dockerfile and above artifact.
-7. Push image to Google Artifact Registry.
-8. On a K8S cluster running in GKE, pull the above image and deploy to production.
-9. Create/update service to expose the above application externally.
