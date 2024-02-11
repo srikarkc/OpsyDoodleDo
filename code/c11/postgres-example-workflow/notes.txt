@@ -1,0 +1,23 @@
+Let's say we have to install MySQL:
+
+1. https://hub.docker.com/_/postgres
+
+2. docker run --name postgress -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+3. Build a Dockerfile
+
+4. Need to move the above image to a Kubernetes Statefulset and expose this via LoadBalancer service.
+
+5. Despite doing this, you're not sure that this is the best solution to deploy Kubernetes.
+
+6. Helm workflow instead.
+
+---
+
+1. PV, PVC
+
+2. Statefulset
+
+3. RBAC
+
+4. Helm charts
