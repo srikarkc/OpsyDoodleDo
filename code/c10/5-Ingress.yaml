@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubia
+spec:
+  rules:
+  - host: kubia.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubia-nodeport
+          servicePort: 80
+      - path: /data
+        backend:
+          serviceName: kubia-database-nodeport
+          servicePort: 5403
+  - host: www.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubia-home-nodeport
+          servicePort: 8443
