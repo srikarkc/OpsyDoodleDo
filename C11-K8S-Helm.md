@@ -5,7 +5,7 @@
 
 > Kubernetes is a container orchestrataion engine. 
 
-![Helm Logo](https://cdn.hashnode.com/res/hashnode/image/upload/v1671213280990/agVlGw_sl.png)
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1671213280990/agVlGw_sl.png" alt="Helm Logo" style="width:600px;"/>
 
 > Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on Kubernetes clusters.
 ---
