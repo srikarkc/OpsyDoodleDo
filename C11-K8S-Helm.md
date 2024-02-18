@@ -44,8 +44,7 @@
     - name: html
       emptyDir: {}
     ```
-
-In this example, we mounted an Empty directory named HTML in the container in pod's definition;
+8. In this example, we mounted an Empty directory named HTML in the container in pod's definition.
 
     ```
     containers:
