@@ -1,0 +1,5 @@
+Generate a python flask application that takes a user input on the browser, the user input should be in the center of the page and the prompt should be 'please enter input'. Format this page to look good with blue material theme. 
+
+The input should only be characters and should not take numbers or any special characters. If the input matches a string 'hotdot', any case match, then, the output should be this is a hotdog with an image of a hotdog. If not hotdog, the output should be this is not a hotdog with the image of a dog.
+
+Generate Dockerfile for this application that can be used along with a Kubernetes deployment. Then, generate a Kubernetes deployment file for this application.

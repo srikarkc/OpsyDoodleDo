@@ -64,3 +64,66 @@
 9. EmptyDir does not persist storage. So, we looked at PV and PVC. 
 
     <img src="https://blog.mayadata.io/hubfs/Storageclass%20blog%20%281%29-1.png" alt="PV and PVC" style="width:400px;"/>
+
+    In Kubernetes, Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) facilitate the management of storage independently of pod lifecycles. PVs are pre-provisioned or dynamically created storage units, offering various backends like NFS and cloud storage, with specific access modes and policies. PVCs allow users to request these storage resources without knowing underlying details, specifying size and access needs. Through a binding process, PVCs are matched with suitable PVs, ensuring that applications have the necessary storage, thereby abstracting and simplifying storage provisioning and management in a cloud-native environment.
+
+---
+
+## Helm Charts
+
+### Apache Webserver
+
+[https://httpd.apache.org/download.cgi](Apache Web Server)
+
+1. Install as a service on a VM by following the instructions on the link above.
+
+2. As an improvement to the workflow, we use Docker containers to run the webserver, easier to share and pass configuration.
+    [https://hub.docker.com/_/httpd](httpd image on Docker Hub)
+    ```
+    docker pull httpd
+    docker run -dit --name my-running-app -p 8080:80 httpd:latest
+    ```
+
+3. Change the index.html file to say, 'Welcome to the Hotdog site'.
+    We create a Dockerfile and a custom image from it
+    ```
+    FROM httpd:latest
+
+    RUN echo '<html><head></head><body><h1>Welcome to Hotdog site!</h1></body></html>' > /usr/local/apache2/htdocs/index.html
+    ```
+    ```
+    docker build -t my-apache2 .
+    docker run -dit --name my-running-app -p 8080:80 my-apache2
+    ```
+
+4. We can run this as a Pod on Kubernetes so that scaling is automatic and better. We can also leverage other Kubernetes features such as under-lying hardware abstraction, volumes, etc.
+    For this, we need to push our image to the Docker Hub.
+    `docker tag my-apache2 srikarkc/my-apache2:latest`
+    `docker push srikarkc/my-apache2:latest`
+    `kubectl run hotdog-site --image=srikarkc/my-apache2:latest --port=80`
+
+    We can use a Deployment object instead of Pod - this will enable us to setup auto-scaling for the Pods.
+
+5. BUT, we still are not sure whether we're using Apache the best way on the Kubernetes cluster. Maybe there are some better objects to use the webserver with on the Kubernetes cluster.
+
+This is where Helm comes into the picture.
+
+    1. First, we [https://helm.sh/docs/intro/install/](install helm)
+    2. We check Artifact Hub for the Chart Repository
+    3. We add the chart repository
+        `helm repo add bitnami https://charts.bitnami.com/bitnami`
+    4. We install using the following command:
+        `helm install my-apache bitnami/apache --version 10.5.4`
+
+6. Now that we used the Helm chart, we want to customize values there so we will create and use a file called 'custom-values.yaml'
+    ```
+    # custom-values.yaml
+    image:
+        registry: docker.io
+        repository: srikarkc/hotdog-site
+        tag: latest
+        pullPolicy: IfNotPresent
+    ```
+    `helm install my-apache bitnami/apache --version 10.5.4 -f custom-values.yaml`
+
+---
