@@ -15,9 +15,13 @@ spec:
     - name: html
       mountPath: /usr/share/nginx/html
       readOnly: true
+    - name: alap
+      mountPath: /tmp
     ports:
     - containerPort: 80
       protocol: TCP
   volumes:
   - name: html
+    emptyDir: {}
+  - name: alap
     emptyDir: {}
