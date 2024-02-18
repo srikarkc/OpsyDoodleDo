@@ -1,7 +1,7 @@
 # Class 9 - Jan' 27, '24 - Kubernetes
 
 ## Introduction
-![K8S Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Kubernetes_logo.svg/2560px-Kubernetes_logo.svg.png)
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Kubernetes_logo.svg/2560px-Kubernetes_logo.svg.png" alt="K8S Logo" style="width:600px;"/>
 
 > Kubernetes is a container orchestrataion engine. 
 
