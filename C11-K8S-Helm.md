@@ -63,4 +63,4 @@
 
 9. EmptyDir does not persist storage. So, we looked at PV and PVC. 
 
-<img src="https://blog.mayadata.io/hubfs/Storageclass%20blog%20%281%29-1.png" alt="PV and PVC" style="width:400px;"/>
+    <img src="https://blog.mayadata.io/hubfs/Storageclass%20blog%20%281%29-1.png" alt="PV and PVC" style="width:400px;"/>
