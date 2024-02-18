@@ -18,4 +18,47 @@
 
     `docker run -d --mount source=my-vol,target=/tmp ubuntu:latest`
 
-3. 
+3. We wanted to share files between two pods. For this, we created a pod definition with volumes section. 
+
+    ```
+    volumes:
+    - name: html
+        emptyDir: {}
+    ```
+
+4. We mounted this volume in our pod definition for each container. 
+
+5. To confirm this configuration is working, we did portforwarding and curled. 
+
+    ```
+    kubectl port-forward fortune 8080:80
+    curl http://localhost:8080
+    ```
+
+6. Now, in case of kubrnetetes, a pod generally runs one container. However, in some cases, you may need more than one container in a pod. The second container may serve a secondary purpose such as log collection. This secondary container can be called a sidecar container. 
+
+7. There are several ways to share storage between pods in Kubernetes. We first covered EmptyDir. 
+
+    ```
+    volumes:
+    - name: html
+      emptyDir: {}
+    ```
+
+In this example, we mounted an Empty directory named HTML in the container in pod's definition;
+
+    ```
+    containers:
+    - image: srikarkc/fortune
+      name: html-generator
+      volumeMounts:
+      - name: html
+        mountPath: /var/htdocs
+    - image: nginx:alpine
+      name: web-server
+      volumeMounts:
+      - name: html
+        mountPath: /usr/share/nginx/html
+        readOnly: true
+    ```
+
