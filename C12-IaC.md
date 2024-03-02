@@ -116,3 +116,20 @@ end
     <img src="https://i0.wp.com/build5nines.com/wp-content/uploads/2023/11/hashicorp-terraform-workflow-learn-build5nines.jpg" style="width:600px;"/>
 </p>
 
+To deploy infrastructure with Terraform:
+
+Scope - Identify the infrastructure for your project.
+Author - Write the configuration for your infrastructure.
+Initialize - Install the plugins Terraform needs to manage the infrastructure.
+Plan - Preview the changes Terraform will make to match your configuration.
+Apply - Make the planned changes.
+
+[Install Terraform from the documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+
+### HCL
+
+A block has a type. Each block type defines how many labels must follow the type keyword. 
+
+After the block type keyword and any labels, the block body is delimited by the { and } characters.
+

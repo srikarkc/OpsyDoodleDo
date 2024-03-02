@@ -8,11 +8,11 @@ terraform {
 }
 
 provider "google" {
-  project = "your-project-id"
-  region  = "us-central1"
+  project = "red-grid-387319"
+  region  = "us-west1"
 }
 
-resource "google_compute_instance" "vm_instance" {
+resource "google_compute_instance" "vm_instance_a" {
   name         = "terraform-instance"
   machine_type = "f1-micro"
 
