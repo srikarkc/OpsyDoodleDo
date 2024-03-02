@@ -158,3 +158,53 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# Vagrant
+.vagrant
+
+
+# Terraform
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Exclude all .tfvars files, which might contain secret data, such as
+# password, private keys, and other sensitive data
+*.tfvars
+*.tfvars.json
+
+# Ignore override files as they are usually used to override resources locally and should not be checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore any .terraform.lock.hcl files, which may contain provider selection and versioning information specific to individual developer environments
+.terraform.lock.hcl
+
+# Ignore files that may contain system-specific or user-specific data
+.terraform/plugins/*
+.terraform/providers/*
+
+# Ignore any .env or .dotenv files that may contain environment variables
+.env
+.env.*
+
+# Ignore any files related to local backend configurations
+terraform.tfstate.d/
+
+# Ignore any log files
+*.log
+
+# Ignore any files related to Terraform workspace if not using remote backend
+.terraform/environment
