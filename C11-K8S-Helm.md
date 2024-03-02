@@ -1,4 +1,4 @@
-# Class 9 - Jan' 27, '24 - Kubernetes
+# Class 11 - Feb' 17, '24 - Kubernetes
 
 ## Introduction
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Kubernetes_logo.svg/2560px-Kubernetes_logo.svg.png" alt="K8S Logo" style="width:300px;"/>
