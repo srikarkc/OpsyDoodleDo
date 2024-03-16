@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package stringcounter;
+
+// The string counting service definition.
+service StringCounter {
+  // Sends a string and receives the count
+  rpc CountCharacters(StringRequest) returns (CharacterCountResponse) {}
+}
+
+// The request message containing the user's string.
+message StringRequest {
+  string user_string = 1;
+}
+
+// The response message containing the character count.
+message CharacterCountResponse {
+  int32 count = 1;
+}
